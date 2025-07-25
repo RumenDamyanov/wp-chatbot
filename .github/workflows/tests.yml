@@ -1,0 +1,48 @@
+name: Tests
+
+on:
+  push:
+    branches: [ master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        php-version: [8.3, 8.4]
+        wordpress-version: [latest]
+
+    name: PHP ${{ matrix.php-version }} - WordPress ${{ matrix.wordpress-version }}
+
+    steps:
+    - uses: actions/checkout@v4
+
+    - name: Setup PHP
+      uses: shivammathur/setup-php@v2
+      with:
+        php-version: ${{ matrix.php-version }}
+        extensions: mbstring, intl, mysqli
+        coverage: xdebug
+
+    - name: Get Composer Cache Directory
+      id: composer-cache
+      run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
+
+    - name: Cache Composer dependencies
+      uses: actions/cache@v3
+      with:
+        path: ${{ steps.composer-cache.outputs.dir }}
+        key: ${{ runner.os }}-composer-${{ hashFiles('**/composer.lock') }}
+        restore-keys: ${{ runner.os }}-composer-
+
+    - name: Install Composer dependencies
+      run: composer install --prefer-dist --no-progress --no-suggest
+
+    - name: Setup WordPress
+      run: |
+        mkdir -p /tmp/wordpress
+        wget -c https://wordpress.org/latest.tar.gz -O - | tar -xz -C /tmp/wordpress --strip-components=1
+
+    - name: Run PHPUnit tests
+      run: composer test

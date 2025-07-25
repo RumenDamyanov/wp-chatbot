@@ -33,10 +33,7 @@
     "scripts": {
         "test": "phpunit || true",
         "coverage": "phpunit --coverage-text --coverage-clover=coverage.xml || true",
-        "cs": "phpcs",
-        "cbf": "phpcbf",
         "style": "phpcs",
-        "lint": "parallel-lint --exclude vendor .",
         "analyze": "phpstan analyse src/",
         "post-install-cmd": [
             "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
