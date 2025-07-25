@@ -1,0 +1,65 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: WP Chatbot 1.0.0\n"
+"Report-Msgid-Bugs-To: https://github.com/RumenDamyanov/wp-chatbot/issues\n"
+"POT-Creation-Date: 2025-07-25 00:00+0000\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: GitHub Copilot\n"
+
+#: admin/partials/wp-chatbot-admin-display.php:34
+msgid "General Settings"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:39
+msgid "Enable Chatbot"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:43
+msgid "Enable the chatbot on your website"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:49
+msgid "Position"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:64
+msgid "Theme"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:78
+msgid "Greeting Message"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:92
+msgid "Primary Color"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:106
+msgid "Show on Mobile"
+msgstr ""
+
+#: admin/partials/wp-chatbot-admin-display.php:113
+msgid "Animation"
+msgstr ""
+
+#: public/partials/wp-chatbot-public-display.php:42
+msgid "Chat Assistant"
+msgstr ""
+
+#: public/partials/wp-chatbot-public-display.php:43
+msgid "Online"
+msgstr ""
+
+#: public/partials/wp-chatbot-public-display.php:72
+msgid "Assistant is typing..."
+msgstr ""
+
+#: public/partials/wp-chatbot-public-display.php:82
+msgid "Type your message..."
+msgstr ""
+
+#: public/partials/wp-chatbot-public-display.php:84
+msgid "Send message"
+msgstr ""

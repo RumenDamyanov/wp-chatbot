@@ -1,0 +1,35 @@
+# Composer
+/vendor/
+/composer.lock
+
+# PHPUnit
+/build/
+/coverage.xml
+.phpunit.result.cache
+
+# IDEs
+/.idea/
+*.sublime*
+*.vscode/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Node
+/node_modules/
+
+# WordPress
+wp-content/uploads/
+wp-content/cache/
+wp-content/upgrade/
+
+# Plugin build artifacts
+dist/
+
+# Misc
+.env
+.env.*

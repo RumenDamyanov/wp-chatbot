@@ -1,0 +1,460 @@
+/**
+ * All of the CSS for the public-facing functionality of the
+ * WP Chatbot plugin should be written in this file.
+ *
+ * @package    WpChatbot
+ * @author     Rumen Damyanov <hey@rumenx.com>
+ */
+
+/* CSS Variables */
+:root {
+    --wp-chatbot-primary-color: #007cba;
+    --wp-chatbot-secondary-color: #f8f9fa;
+    --wp-chatbot-text-color: #333;
+    --wp-chatbot-border-color: #ddd;
+    --wp-chatbot-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    --wp-chatbot-border-radius: 12px;
+    --wp-chatbot-transition: all 0.3s ease;
+}
+
+/* Main Container */
+.wp-chatbot-container {
+    position: fixed;
+    z-index: 999999;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 14px;
+    line-height: 1.4;
+}
+
+.wp-chatbot-container * {
+    box-sizing: border-box;
+}
+
+/* Positioning */
+.wp-chatbot-bottom-right {
+    bottom: 20px;
+    right: 20px;
+}
+
+.wp-chatbot-bottom-left {
+    bottom: 20px;
+    left: 20px;
+}
+
+.wp-chatbot-top-right {
+    top: 20px;
+    right: 20px;
+}
+
+.wp-chatbot-top-left {
+    top: 20px;
+    left: 20px;
+}
+
+/* Toggle Button */
+.wp-chatbot-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: var(--wp-chatbot-primary-color);
+    border: none;
+    cursor: pointer;
+    box-shadow: var(--wp-chatbot-shadow);
+    transition: var(--wp-chatbot-transition);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    position: relative;
+    overflow: hidden;
+}
+
+.wp-chatbot-toggle:hover {
+    transform: scale(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
+}
+
+.wp-chatbot-toggle svg {
+    width: 24px;
+    height: 24px;
+    transition: var(--wp-chatbot-transition);
+}
+
+.wp-chatbot-icon-close {
+    opacity: 0;
+    transform: rotate(90deg);
+    position: absolute;
+}
+
+.wp-chatbot-container.wp-chatbot-open .wp-chatbot-icon-chat {
+    opacity: 0;
+    transform: rotate(-90deg);
+}
+
+.wp-chatbot-container.wp-chatbot-open .wp-chatbot-icon-close {
+    opacity: 1;
+    transform: rotate(0deg);
+}
+
+/* Chatbot Window */
+.wp-chatbot-window {
+    position: absolute;
+    bottom: 80px;
+    right: 0;
+    width: 350px;
+    height: 500px;
+    background: white;
+    border-radius: var(--wp-chatbot-border-radius);
+    box-shadow: var(--wp-chatbot-shadow);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(20px);
+    transition: var(--wp-chatbot-transition);
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+.wp-chatbot-container.wp-chatbot-open .wp-chatbot-window {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Header */
+.wp-chatbot-header {
+    background: var(--wp-chatbot-primary-color);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wp-chatbot-avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+.wp-chatbot-avatar svg {
+    width: 20px;
+    height: 20px;
+}
+
+.wp-chatbot-info {
+    flex: 1;
+}
+
+.wp-chatbot-info h4 {
+    margin: 0;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.wp-chatbot-status {
+    font-size: 12px;
+    opacity: 0.8;
+}
+
+.wp-chatbot-minimize {
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    padding: 4px;
+    border-radius: 4px;
+    transition: background-color 0.2s;
+}
+
+.wp-chatbot-minimize:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.wp-chatbot-minimize svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Messages */
+.wp-chatbot-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    scroll-behavior: smooth;
+}
+
+.wp-chatbot-message {
+    margin-bottom: 16px;
+    animation: fadeInUp 0.3s ease;
+}
+
+.wp-chatbot-message-bot {
+    display: flex;
+    justify-content: flex-start;
+}
+
+.wp-chatbot-message-user {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.wp-chatbot-message-content {
+    max-width: 80%;
+    padding: 12px 16px;
+    border-radius: 18px;
+    word-wrap: break-word;
+}
+
+.wp-chatbot-message-bot .wp-chatbot-message-content {
+    background: var(--wp-chatbot-secondary-color);
+    color: var(--wp-chatbot-text-color);
+    border-bottom-left-radius: 6px;
+}
+
+.wp-chatbot-message-user .wp-chatbot-message-content {
+    background: var(--wp-chatbot-primary-color);
+    color: white;
+    border-bottom-right-radius: 6px;
+}
+
+.wp-chatbot-message-time {
+    font-size: 11px;
+    color: #999;
+    margin-top: 4px;
+    text-align: right;
+}
+
+.wp-chatbot-message-bot .wp-chatbot-message-time {
+    text-align: left;
+}
+
+/* Typing Indicator */
+.wp-chatbot-typing {
+    padding: 0 20px 10px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.wp-chatbot-typing-dots {
+    display: flex;
+    gap: 4px;
+}
+
+.wp-chatbot-typing-dots span {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #999;
+    animation: typingDots 1.4s infinite ease-in-out;
+}
+
+.wp-chatbot-typing-dots span:nth-child(1) {
+    animation-delay: -0.32s;
+}
+
+.wp-chatbot-typing-dots span:nth-child(2) {
+    animation-delay: -0.16s;
+}
+
+.wp-chatbot-typing-text {
+    font-size: 12px;
+    color: #999;
+}
+
+/* Input Area */
+.wp-chatbot-input-area {
+    padding: 16px 20px;
+    border-top: 1px solid var(--wp-chatbot-border-color);
+}
+
+.wp-chatbot-form {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.wp-chatbot-input {
+    flex: 1;
+    padding: 12px 16px;
+    border: 1px solid var(--wp-chatbot-border-color);
+    border-radius: 24px;
+    outline: none;
+    font-size: 14px;
+    transition: border-color 0.2s;
+}
+
+.wp-chatbot-input:focus {
+    border-color: var(--wp-chatbot-primary-color);
+}
+
+.wp-chatbot-send {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: var(--wp-chatbot-primary-color);
+    border: none;
+    color: white;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: var(--wp-chatbot-transition);
+}
+
+.wp-chatbot-send:hover {
+    transform: scale(1.05);
+}
+
+.wp-chatbot-send svg {
+    width: 18px;
+    height: 18px;
+}
+
+/* Shortcode Styles */
+.wp-chatbot-shortcode {
+    border: 1px solid var(--wp-chatbot-border-color);
+    border-radius: var(--wp-chatbot-border-radius);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    background: white;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+}
+
+.wp-chatbot-shortcode-header {
+    background: var(--wp-chatbot-primary-color);
+    color: white;
+    padding: 16px 20px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.wp-chatbot-shortcode-messages {
+    flex: 1;
+    padding: 20px;
+    overflow-y: auto;
+    min-height: 200px;
+}
+
+.wp-chatbot-shortcode-input {
+    padding: 16px 20px;
+    border-top: 1px solid var(--wp-chatbot-border-color);
+}
+
+/* Dark Theme */
+.wp-chatbot-dark {
+    --wp-chatbot-secondary-color: #2c2c2c;
+    --wp-chatbot-text-color: #e0e0e0;
+    --wp-chatbot-border-color: #444;
+}
+
+.wp-chatbot-dark .wp-chatbot-window {
+    background: #1e1e1e;
+    color: var(--wp-chatbot-text-color);
+}
+
+.wp-chatbot-dark .wp-chatbot-input {
+    background: #2c2c2c;
+    color: var(--wp-chatbot-text-color);
+    border-color: var(--wp-chatbot-border-color);
+}
+
+.wp-chatbot-dark .wp-chatbot-shortcode {
+    background: #1e1e1e;
+    color: var(--wp-chatbot-text-color);
+}
+
+/* Animations */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes typingDots {
+    0%, 80%, 100% {
+        transform: scale(0);
+    }
+    40% {
+        transform: scale(1);
+    }
+}
+
+/* Animation Classes */
+.wp-chatbot-container[data-animation="slide"] .wp-chatbot-window {
+    transform: translateY(20px);
+}
+
+.wp-chatbot-container[data-animation="fade"] .wp-chatbot-window {
+    transform: none;
+}
+
+.wp-chatbot-container[data-animation="bounce"] .wp-chatbot-window {
+    animation: bounceIn 0.6s ease;
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .wp-chatbot-window {
+        width: 320px;
+        height: 450px;
+    }
+
+    .wp-chatbot-container.wp-chatbot-bottom-right,
+    .wp-chatbot-container.wp-chatbot-bottom-left {
+        bottom: 10px;
+    }
+
+    .wp-chatbot-container.wp-chatbot-bottom-right {
+        right: 10px;
+    }
+
+    .wp-chatbot-container.wp-chatbot-bottom-left {
+        left: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .wp-chatbot-window {
+        width: calc(100vw - 20px);
+        height: 400px;
+    }
+
+    .wp-chatbot-container.wp-chatbot-bottom-right .wp-chatbot-window,
+    .wp-chatbot-container.wp-chatbot-bottom-left .wp-chatbot-window {
+        right: 0;
+        left: 0;
+        bottom: 80px;
+    }
+}
