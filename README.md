@@ -3,7 +3,6 @@
 A WordPress plugin that integrates advanced chatbot functionality using the [rumenx/php-chatbot](https://github.com/RumenDamyanov/php-chatbot) package. This plugin provides seamless chat integration for your WordPress site with modern UI and powerful backend capabilities.
 
 [![Tests](https://github.com/RumenDamyanov/wp-chatbot/actions/workflows/tests.yml/badge.svg)](https://github.com/RumenDamyanov/wp-chatbot/actions/workflows/tests.yml)
-[![codecov](https://codecov.io/gh/RumenDamyanov/wp-chatbot/branch/master/graph/badge.svg)](https://codecov.io/gh/RumenDamyanov/wp-chatbot)
 [![License](https://img.shields.io/badge/license-GPL--2.0%2B-red.svg)](https://github.com/RumenDamyanov/wp-chatbot/blob/master/LICENSE.md)
 
 ## Features
@@ -290,9 +289,6 @@ We maintain high code quality standards:
 
 - **PHP_CodeSniffer** with WordPress Coding Standards
 - **PHPUnit** for unit testing
-- **Brain/Monkey** for WordPress function mocking
-- **ESLint** for JavaScript linting
-- **Jest** for JavaScript testing
 
 ## Contributing
 
@@ -306,16 +302,7 @@ We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) f
 
 ## Changelog
 
-### 1.0.0 (2025-07-25)
-
-- Initial release
-- Core chatbot functionality
-- WordPress admin integration
-- Shortcode support
-- Template integration
-- Comprehensive hooks and filters
-- Mobile responsive design
-- Multilingual support
+See [CHANGELOG.md](CHANGELOG.md) for release history.
 
 ## Support
 
